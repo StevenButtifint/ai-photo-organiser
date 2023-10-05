@@ -5,6 +5,25 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding-top: 20px;
+    background: linear-gradient(to bottom right, #d8b5ff, #ffc3c3, #ffdbb4);
+    background-size: 100% 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+img {
+    width: 60vw;
+    height: 60vh;
+    display: block;
+    margin: 0 auto;
+}
+
 .centered-width-60 {
     max-width: 75%;
     margin-left: auto;
