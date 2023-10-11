@@ -5,6 +5,27 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+h3 {
+    font-size: 18px;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+h5 {
+    font-size: 16px;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 5px;
+    margin-top: 0px;
+}
+
+p {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     width: 100vw;
