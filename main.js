@@ -15,11 +15,11 @@ app.on('ready', () => {
 
   mainWindow.loadFile('pages/index.html');
 
-  ipcMain.on('run-python-script', (event) => {
+  ipcMain.on('organise-folder', (event) => {
     const pythonProcess = spawn('python', ['./backend/photo_organiser.py', '2', '3']);
     pythonProcess.stdout.on('data', (data) => {
       console.log(data.toString());
-      event.sender.send('python-script-result', data.toString());
+      event.sender.send('organise-result', data.toString());
     });
   });
 });

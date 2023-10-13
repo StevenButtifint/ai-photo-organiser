@@ -9,3 +9,5 @@ document.getElementById('homeButton').addEventListener('click', () => {
   window.location.href = '../pages/index.html';
 });
 
+ipcRenderer.on('organise-result', (event, result) => {
+});
