@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu } = require('electron');
 const { spawn } = require('child_process');
 
 app.on('ready', () => {
@@ -10,6 +10,8 @@ app.on('ready', () => {
       contextIsolation: false,
     },
   });
+
+  Menu.setApplicationMenu(null);
 
   mainWindow.loadFile('pages/index.html');
 
