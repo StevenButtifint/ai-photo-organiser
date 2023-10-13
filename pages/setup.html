@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../assets/styles.css">
+    <title id="setupName"></title>
+</head>
+<body>
+    <header>
+        <div class="centered-width-60">
+            <h1>Setup</h1>
+            <p>Select the folder containing your unsorted photos.</p>
+        </div>
+    </header>
+    <main>
+        <div class="centered-width-60">
+            <div id="button-container">
+              <input readonly type="text" id="folder-entry" name="name">
+              <button id="getStartedButton" class="button">Select Folder</button>
+            </div>
+            <div>
+              <div id="notice"></div>
+            </div>
+            <div id="button-container">
+              <a id="homeButton" class="back-link">Back</a>
+              <button id="runScriptButton" class="button">Run Python Script</button>
+          </div>
+        </div>
+    </main>
+    <footer>
+      <p><span id="appName"></span> • <span id="appVersion"></span></p>
+    </footer>
+  <script src="../renderer/constants.js"></script>
+  <script src="../renderer/setup.js"></script>
+</body>
+</html>
