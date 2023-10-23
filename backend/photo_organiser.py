@@ -3,6 +3,7 @@ import sys
 import glob
 
 from image_classifier import ImageClassifier
+from constants import *
 
 
 class PhotoOrganiser:
