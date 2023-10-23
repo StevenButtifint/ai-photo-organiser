@@ -13,3 +13,12 @@ class PhotoOrganiser:
         self.image_classifier.setup_model()
 
 
+    def set_directory(self, directory):
+        if os.path.isdir(directory_path):
+            if os.path.exists(directory_path):
+                self.directory = directory
+            else:
+                self.status = 404
+        else:
+            self.status = 400
+
