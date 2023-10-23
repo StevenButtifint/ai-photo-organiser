@@ -7,8 +7,9 @@ from constants import *
 
 
 class PhotoOrganiser:
-    def __init__(self, directory):
-        self.directory = directory
+    def __init__(self):
+        self.status = 200
+        self.directory = None
         self.image_classifier = ImageClassifier()
         self.image_classifier.setup_model()
 
