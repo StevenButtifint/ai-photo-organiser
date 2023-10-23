@@ -15,8 +15,8 @@ app.on('ready', () => {
 
   mainWindow.loadFile('pages/index.html');
 
-  ipcMain.on('organise-folder', (event) => {
-    const pythonProcess = spawn('python', ['./backend/photo_organiser.py', '2', '3']);
+  ipcMain.on('organise-folder', (event, folder_location) => {
+    const pythonProcess = spawn('python', ['./backend/photo_organiser.py', folder_location]);
     pythonProcess.stdout.on('data', (data) => {
       console.log(data.toString());
       event.sender.send('organise-result', data.toString());
