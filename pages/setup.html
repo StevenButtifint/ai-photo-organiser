@@ -8,21 +8,20 @@
 <body>
     <header>
         <div class="centered-width-60">
-            <h1>Select the folder to organise</h1>
+            <h1>Select a folder to organise</h1>
         </div>
     </header>
     <main>
-            <div>
-              <div id="notice"></div>
-            </div>
-            <div id="button-container">
-              <a id="homeButton" class="back-link">Back</a>
-              <button id="processButton" class="button">Organise</button>
-          </div>
       <div id="gif-container">
         <img src="../assets/images/setup_gif.gif" alt="home gif" id="gif">
       </div>
+      <div id="button-container" class="centered-content">
+        <div>
+          <input type="text" placeholder="Select Folder" id="folder-entry" name="name">
+          <button id="processButton" class="button">Organise</button>
+          <div id="notice"></div>
         </div>
+      </div>
     </main>
     <footer>
       <p><span id="appName"></span> • <span id="appVersion"></span></p>
