@@ -3,7 +3,7 @@
 
 ### Demo Video
 <p align="middle">
-<img src="https://github.com/stevenbuttifint/backup-manager/blob/main/demo/demo_video.gif?raw=true" width=49% height=100%>
+<img src="https://github.com/stevenbuttifint/ai-photo-organiser/blob/main/demo/demo_video.gif?raw=true" width=49% height=100%>
 </p>
 
 
