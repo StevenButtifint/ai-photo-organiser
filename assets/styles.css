@@ -69,15 +69,15 @@ img {
 }
 
 .button {
-    margin-top: 20px;
-    padding: 10px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    padding: 10px 18px;
     border: none;
     border-radius: 30px;
     color: #fff;
     font-size: 22px;
     cursor: pointer;
     transition: background 0.9s, transform 0.2s;
-
     background: linear-gradient(45deg, #f6ac69, #d55c7a); 
     background-size: 200% 200%; 
     animation: gradientChange 2s linear infinite; 
