@@ -91,3 +91,17 @@ img {
     outline: none;
 }
 
+.back-link {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    padding: 9px;
+    background-color: transparent;
+    border: 0px;
+}
+
+.back-link:hover {
+    color: #999;
+}
+
