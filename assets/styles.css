@@ -105,6 +105,18 @@ img {
     color: #999;
 }
 
+@keyframes gradientChange {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .input[type="text"] {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
