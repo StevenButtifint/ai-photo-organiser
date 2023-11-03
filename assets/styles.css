@@ -105,3 +105,29 @@ img {
     color: #999;
 }
 
+.input[type="text"] {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding: 5px;
+    padding-left: 10px;
+    width: 300px;
+    height: 24px;
+    position: relative;
+    background-color: transparent;
+    border-radius: 30px;
+    border: 3px solid white;
+    color: white;
+    
+}
+
+.input[type="text"]:focus{
+    background-color: transparent;
+    border: 3px solid white;
+
+}
+
+.input::placeholder {
+    text-align: center;
+    color: #fff;
+}
+
