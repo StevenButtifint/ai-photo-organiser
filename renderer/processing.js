@@ -5,6 +5,8 @@ document.getElementById('setupName').textContent = window.constants.app_name + "
 document.getElementById('appCredit').textContent = window.constants.app_credit;
 document.getElementById('appVersion').textContent = window.constants.app_version;
 
+const notice = document.getElementById('organise-notice');
+
 document.getElementById('homeButton').addEventListener('click', () => {
   window.location.href = '../pages/index.html';
 });
@@ -16,5 +18,11 @@ ipcRenderer.on('organise-result', (event, result) => {
   const returned_state = returned[1];
   const returned_done = returned[2];
   const returned_state_message = returned[3];
+
+  notice.textContent = `${returned_message}`;
+
+  if (returned_state != "200"){
+    notice.textContent = `${returned_state_message}`;
+  }
 
 });
