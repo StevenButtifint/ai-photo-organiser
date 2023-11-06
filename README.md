@@ -39,6 +39,7 @@ Python was my choice for the backend due to its strong cross-platform compatibil
 - How to use the Electron Framework to create a desktop application UI using HTML, CSS and Javascript.
 - How to run backend python functions on separate background threads.
 - How to use affordance in UI and UX design to make them more intuitive.
+- How to make looping animations using the Adobe Creative Suite.
 
 
 
