@@ -40,3 +40,8 @@ class PhotoOrganiser:
         if self.status != 200:
             quit()
 
+
+if __name__ == "__main__":
+    folder_directory = str(sys.argv[1])
+    photo_organiser = PhotoOrganiser()
+
