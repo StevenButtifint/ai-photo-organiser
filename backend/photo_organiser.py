@@ -34,6 +34,16 @@ class PhotoOrganiser:
         if not self.photo_classifier.is_model_loaded():
             self.status = self.photo_classifier.setup_model()
 
+    def set_classification_list(self):
+        self.classification_list = []
+        for photo_dir in self.photo_paths:
+            try:
+                preprocessed_image = self.photo_classifier.preprocess_photo(photo_dir)
+                image_classification = self.photo_classifier.classify_photo(preprocessed_image)
+                self.classification_list.append([image_classification, photo_dir])
+            except FileNotFoundError:
+                self.status = 503
+
     def output_status(self, message):
         formatted = [message, self.status, self.finished, status_codes[self.status]]
         print(json.dumps(formatted), flush=True)
