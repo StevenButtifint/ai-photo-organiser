@@ -30,6 +30,10 @@ class PhotoOrganiser:
         self.photo_paths = glob.glob(os.path.join(self.directory, '*.jpg'))
         self.photo_count = len(self.photo_paths)
 
+    def load_classifier(self):
+        if not self.photo_classifier.is_model_loaded():
+            self.status = self.photo_classifier.setup_model()
+
     def output_status(self, message):
         formatted = [message, self.status, self.finished, status_codes[self.status]]
         print(json.dumps(formatted), flush=True)
