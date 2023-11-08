@@ -44,6 +44,14 @@ class PhotoOrganiser:
             except FileNotFoundError:
                 self.status = 503
 
+    def set_classification_dictionary(self):
+        self.classification_dictionary = {}
+        for key, value in self.classification_list:
+            if key in self.classification_dictionary:
+                self.classification_dictionary[key].append(value)
+            else:
+                self.classification_dictionary[key] = [value]
+
     def output_status(self, message):
         formatted = [message, self.status, self.finished, status_codes[self.status]]
         print(json.dumps(formatted), flush=True)
