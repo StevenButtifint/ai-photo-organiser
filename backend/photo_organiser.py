@@ -26,6 +26,10 @@ class PhotoOrganiser:
         else:
             self.status = 400
 
+    def set_photo_paths(self):
+        self.photo_paths = glob.glob(os.path.join(self.directory, '*.jpg'))
+        self.photo_count = len(self.photo_paths)
+
     def output_status(self, message):
         formatted = [message, self.status, self.finished, status_codes[self.status]]
         print(json.dumps(formatted), flush=True)
