@@ -12,9 +12,10 @@ class PhotoOrganiser:
         self.status = 200
         self.directory = None
         self.finished = False
-        self.image_classifier = ImageClassifier()
-        self.image_classifier.setup_model()
-
+        self.photo_paths = []
+        self.photo_count = 0
+        self.classification_list = []
+        self.classification_dictionary = {}
 
     def set_directory(self, directory_path):
         if os.path.isdir(directory_path):
