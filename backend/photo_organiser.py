@@ -3,7 +3,7 @@ import sys
 import glob
 import json
 
-from image_classifier import ImageClassifier
+from photo_classifier import PhotoClassifier
 from constants import *
 
 
@@ -16,6 +16,7 @@ class PhotoOrganiser:
         self.photo_count = 0
         self.classification_list = []
         self.classification_dictionary = {}
+        self.photo_classifier = PhotoClassifier()
 
     def set_directory(self, directory_path):
         if os.path.isdir(directory_path):
