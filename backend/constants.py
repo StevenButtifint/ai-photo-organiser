@@ -15,3 +15,5 @@ status_codes = {
     507: "Photo could not found and was not moved.",
     900: "A broader exception occurred, check console message."
 }
+
+CLASSES_DIR = 'backend\\classes.json'
