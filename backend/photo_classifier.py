@@ -33,3 +33,13 @@ class PhotoClassifier:
         with open(CLASSES_DIR, 'r') as file:
             self.class_index = json.load(file)
 
+    @staticmethod
+    def preprocess_photo(photo_path):
+        photo = Image.open(photo_path)
+        preprocessed_photo = transforms.Compose([
+            transforms.Resize((224, 224)),
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+        ])
+        return preprocessed_photo(photo)
+
