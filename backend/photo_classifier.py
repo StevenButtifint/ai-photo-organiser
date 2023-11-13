@@ -43,3 +43,10 @@ class PhotoClassifier:
         ])
         return preprocessed_photo(photo)
 
+    def classify_photo(self, preprocessed_photo):
+        with torch.no_grad():
+            output = self.model(preprocessed_photo.unsqueeze(0))
+        probabilities = torch.nn.functional.softmax(output[0], dim=0)
+        predicted_class = torch.argmax(probabilities).item()
+        predicted_label = self.class_index.get(str(predicted_class))[1]
+        return predicted_label
