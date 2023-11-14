@@ -43,6 +43,9 @@ Python was my choice for the backend due to its strong cross-platform compatibil
 - How to make looping animations using the Adobe Creative Suite.
 - How to create a linkage matrix to cluster words from a wordnet.
 
+### References
+- EfficientNet B3 model can be found [here](https://www.kaggle.com/datasets/kozodoi/efficientnet-pytorch/) and is placed in: `backend\models\efficientnet-b3.pth`
+
 
 
 ---
