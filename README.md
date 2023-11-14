@@ -12,10 +12,10 @@ The AI Photo Organiser enabled automatic organisation of your photo collections 
 
 ### How it works
 1. The user selects a folders containing an unsorted set of photos.
-2. A neural network classifies each photo based on its contents.
-3. Similarities between image contents are identified.
-4. Groups get created using closely related classifications and high similarity features in the images.
-5. The photos get organised into subfolders based on the group their classifications and similarities fall under.
+2. Each photo gets a classification based on its contents and distinct features.
+3. Similar classifications get grouped together to form clusters.   
+4. The clusters define which subfolder a photo gets sorted into.
+5. The use now has their photos sorted into subfolders.
 
 ### Design Decisions
 I used a convolutional neural network for the initial image classification, selecting the EfficientNet B3 model to minimize operation time while maintaining high accuracy, due to the user environment having minimal computing power.
