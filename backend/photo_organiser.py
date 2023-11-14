@@ -8,9 +8,9 @@ from constants import *
 
 
 class PhotoOrganiser:
-    def __init__(self):
+    def __init__(self, directory):
         self.status = 200
-        self.directory = None
+        self.directory = directory
         self.finished = False
         self.photo_paths = []
         self.photo_count = 0
@@ -18,14 +18,11 @@ class PhotoOrganiser:
         self.classification_dictionary = {}
         self.photo_classifier = PhotoClassifier()
 
-    def set_directory(self, directory_path):
-        if os.path.isdir(directory_path):
-            if os.path.exists(directory_path):
-                self.directory = directory_path
-            else:
-                self.status = 404
-        else:
+    def validate_directory(self):
+        if not os.path.isdir(self.directory):
             self.status = 400
+        elif not os.path.exists(self.directory):
+            self.status = 404
 
     def set_photo_paths(self):
         self.photo_paths = glob.glob(os.path.join(self.directory, '*.jpg'))
