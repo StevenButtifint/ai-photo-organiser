@@ -4,6 +4,8 @@ import json
 from PIL import Image
 import torchvision.transforms as transforms
 
+from constants import CLASSES_DIR
+
 
 class PhotoClassifier:
     def __init__(self):
