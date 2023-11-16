@@ -69,6 +69,14 @@ class PhotoOrganiser:
         linkage_matrix = linkage(distance_matrix, method='average')
         self.linkage_matrix = linkage_matrix
 
+    def create_cluster_names(self):
+        self.cluster_names = {}
+        for classification, cluster_id in self.classification_cluster_dictionary.items():
+            if cluster_id in self.cluster_names:
+                self.cluster_names[cluster_id] += "-" + str(classification)
+            else:
+                self.cluster_names[cluster_id] = str(classification)
+
     def output_status(self, message):
         formatted = [message, self.status, self.finished, status_codes[self.status]]
         print(json.dumps(formatted), flush=True)
