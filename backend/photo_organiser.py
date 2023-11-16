@@ -54,10 +54,13 @@ class PhotoOrganiser:
         formatted = [message, self.status, self.finished, status_codes[self.status]]
         print(json.dumps(formatted), flush=True)
         if self.status != 200:
+
+
+def process_request(folder_path):
+    photo_organiser = PhotoOrganiser(folder_path)
             quit()
 
 
 if __name__ == "__main__":
     folder_directory = str(sys.argv[1])
-    photo_organiser = PhotoOrganiser()
-
+    process_request(folder_directory)
