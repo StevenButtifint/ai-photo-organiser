@@ -50,6 +50,23 @@ class PhotoOrganiser:
             else:
                 self.classification_dictionary[key] = [value]
 
+    def set_linkage_matrix(self):
+        distance_matrix = []
+        class_labels = self.get_dictionary_classification_list()
+        for label1 in class_labels:
+            row = []
+            synset1 = wordnet.synsets(label1)
+            for label2 in class_labels:
+                synset2 = wordnet.synsets(label2)
+                if synset1 and synset2:
+                    similarity = synset1[0].wup_similarity(synset2[0])
+                    row.append(similarity if similarity is not None else 0)
+                else:
+                    row.append(0)
+            distance_matrix.append(row)
+        linkage_matrix = linkage(distance_matrix, method='average')
+        self.linkage_matrix = linkage_matrix
+
     def output_status(self, message):
         formatted = [message, self.status, self.finished, status_codes[self.status]]
         print(json.dumps(formatted), flush=True)
