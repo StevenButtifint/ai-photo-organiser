@@ -77,6 +77,18 @@ class PhotoOrganiser:
             else:
                 self.cluster_names[cluster_id] = str(classification)
 
+    def move_photos(self):
+        for classification, cluster_id in self.classification_cluster_dictionary.items():
+            photo_directories = self.classification_dictionary[classification]
+            folder_name = self.cluster_names[cluster_id]
+            if self.create_subfolder(folder_name):
+                for directory in photo_directories:
+                    if not self.move_file(directory, self.directory + "\\" + folder_name):
+                        break
+                self.finished = True
+            else:
+                break
+
     def output_status(self, message):
         formatted = [message, self.status, self.finished, status_codes[self.status]]
         print(json.dumps(formatted), flush=True)
