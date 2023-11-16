@@ -2,6 +2,7 @@ import os
 import sys
 import glob
 import json
+import nltk
 
 from photo_classifier import PhotoClassifier
 from constants import *
@@ -17,6 +18,7 @@ class PhotoOrganiser:
         self.classification_list = []
         self.classification_dictionary = {}
         self.photo_classifier = PhotoClassifier()
+        self.download_wordnet()
 
     def validate_directory(self):
         if not os.path.isdir(self.directory):
@@ -71,6 +73,10 @@ class PhotoOrganiser:
         formatted = [message, self.status, self.finished, status_codes[self.status]]
         print(json.dumps(formatted), flush=True)
         if self.status != 200:
+
+    @staticmethod
+    def download_wordnet():
+        nltk.download(WORDNET)
 
 
 def process_request(folder_path):
