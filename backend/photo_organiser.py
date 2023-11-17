@@ -3,6 +3,9 @@ import sys
 import glob
 import json
 import nltk
+import shutil
+from nltk.corpus import wordnet
+from scipy.cluster.hierarchy import linkage, fcluster
 
 from photo_classifier import PhotoClassifier
 from constants import *
@@ -15,8 +18,12 @@ class PhotoOrganiser:
         self.finished = False
         self.photo_paths = []
         self.photo_count = 0
+        self.clusters = None
+        self.cluster_count = 0
+        self.cluster_names = None
         self.classification_list = []
         self.classification_dictionary = {}
+        self.classification_cluster_dictionary = {}
         self.photo_classifier = PhotoClassifier()
         self.download_wordnet()
 
@@ -68,6 +75,23 @@ class PhotoOrganiser:
             distance_matrix.append(row)
         linkage_matrix = linkage(distance_matrix, method='average')
         self.linkage_matrix = linkage_matrix
+
+    def create_cluster_dictionary(self):
+        class_labels = self.get_dictionary_classification_list()
+        linkage_matrix = self.get_linkage_matrix()
+        self.clusters = None
+        cut_height = linkage_matrix[-1, 2]
+        cluster_size_max = len(class_labels) / 4
+        max_cluster_size = len(class_labels)
+        while max_cluster_size > cluster_size_max:
+            self.clusters = fcluster(linkage_matrix, t=cut_height, criterion='distance')
+            cluster_sizes = {}
+            for cluster in set(self.clusters):
+                cluster_sizes[cluster] = self.clusters.tolist().count(cluster)
+            max_cluster_size = max(cluster_sizes.values())
+            cut_height -= 0.5
+        self.set_cluster_count(len(cluster_sizes))
+        self.classification_cluster_dictionary = dict(zip(class_labels, self.clusters))
 
     def create_cluster_names(self):
         self.cluster_names = {}
