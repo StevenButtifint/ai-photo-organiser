@@ -117,6 +117,11 @@ img {
     }
 }
 
+.gif-container {
+    width: 40%;
+    text-align: center;
+}
+
 .input[type="text"] {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
@@ -143,3 +148,37 @@ img {
     color: #fff;
 }
 
+.centered-content {
+    text-align: center;
+}
+
+main {
+    margin-bottom: 60px;
+}
+
+.organise-notice {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+}
+
+footer {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #aaa;
+    text-align: center;
+    padding: 0px;
+    margin-bottom: 1%;
+}
+
+.container {
+    width: 90%;
+    height: 30%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
