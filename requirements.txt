@@ -2,3 +2,5 @@ torchvision==0.16.0
 torch==2.1.0
 timm==0.9.7
 Pillow==9.4.0
+scipy==1.11.3
+nltk==3.8.1
