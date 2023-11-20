@@ -1,5 +1,5 @@
 
-status_codes = {
+STATUS_CODES = {
     200: "OK",
     400: "Invalid folder location given.",
     401: "Unauthorized",
@@ -17,3 +17,4 @@ status_codes = {
 }
 
 CLASSES_DIR = 'backend\\classes.json'
+WORDNET = 'wordnet'
