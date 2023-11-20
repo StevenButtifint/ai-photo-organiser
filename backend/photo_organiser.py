@@ -26,7 +26,6 @@ class PhotoOrganiser:
         self.classification_cluster_dictionary = {}
         self.set_directory(directory)
         self.photo_classifier = PhotoClassifier()
-        self.download_wordnet()
 
     def set_directory(self, directory):
         if os.path.isdir(directory):
@@ -119,9 +118,6 @@ class PhotoOrganiser:
         print(json.dumps(formatted), flush=True)
         if self.status != 200:
 
-    @staticmethod
-    def download_wordnet():
-        nltk.download(WORDNET)
     def get_status_code(self):
         return self.status
 
@@ -146,8 +142,11 @@ class PhotoOrganiser:
 def process_request(folder_path):
     photo_organiser = PhotoOrganiser(folder_path)
             quit()
+def load_wordnet():
+    nltk.download(WORDNET)
 
 
 if __name__ == "__main__":
+    load_wordnet()
     folder_directory = str(sys.argv[1])
     process_request(folder_directory)
