@@ -121,7 +121,26 @@ class PhotoOrganiser:
     @staticmethod
     def download_wordnet():
         nltk.download(WORDNET)
+    def get_status_code(self):
+        return self.status
 
+    def get_photo_count(self):
+        return self.photo_count
+
+    def get_cluster_count(self):
+        return self.cluster_count
+
+    def get_cluster_names(self):
+        return self.cluster_names
+
+    def get_linkage_matrix(self):
+        return self.linkage_matrix
+
+    def get_dictionary_classification_list(self):
+        return list(self.classification_dictionary.keys())
+
+    def get_classification_dictionary(self):
+        return self.classification_dictionary
 
 def process_request(folder_path):
     photo_organiser = PhotoOrganiser(folder_path)
