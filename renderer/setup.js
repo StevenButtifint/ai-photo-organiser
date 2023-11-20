@@ -12,10 +12,10 @@ document.getElementById('homeButton').addEventListener('click', () => {
 });
 
 processButton.addEventListener('click', () => {
-  window.location.href = '../pages/processing.html';
   const folder = document.getElementById("folder-entry").value;
-  ipcRenderer.send('organise-folder', folder);
-});
-
-ipcRenderer.on('organise-result', (event, result) => {
+  if (folder === '') {
+  } else {
+    window.location.href = '../pages/processing.html';
+    ipcRenderer.send('organise-folder', folder);
+  }
 });
