@@ -14,7 +14,7 @@ from constants import *
 class PhotoOrganiser:
     def __init__(self, directory):
         self.status = 200
-        self.directory = directory
+        self.directory = None
         self.finished = False
         self.photo_paths = []
         self.photo_count = 0
@@ -24,14 +24,15 @@ class PhotoOrganiser:
         self.classification_list = []
         self.classification_dictionary = {}
         self.classification_cluster_dictionary = {}
+        self.set_directory(directory)
         self.photo_classifier = PhotoClassifier()
         self.download_wordnet()
 
-    def validate_directory(self):
-        if not os.path.isdir(self.directory):
+    def set_directory(self, directory):
+        if os.path.isdir(directory):
+            self.directory = directory
+        else:
             self.status = 400
-        elif not os.path.exists(self.directory):
-            self.status = 404
 
     def set_photo_paths(self):
         self.photo_paths = glob.glob(os.path.join(self.directory, '*.jpg'))
