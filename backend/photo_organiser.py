@@ -22,6 +22,7 @@ class PhotoOrganiser:
         self.clusters = None
         self.cluster_count = 0
         self.cluster_names = None
+        self.linkage_matrix = None
         self.classification_list = []
         self.classification_dictionary = {}
         self.classification_cluster_dictionary = {}
@@ -115,6 +116,18 @@ class PhotoOrganiser:
                 self.finished = True
             else:
                 break
+
+    def move_file(self, file_directory, destination):
+        try:
+            shutil.move(file_directory, destination)
+            return True
+        except FileNotFoundError:
+            self.status = 507
+            return False
+        except Exception as e:
+            self.status = 900
+            self.status_message = str(e)
+            return False
 
     def output_status(self, message):
         if self.status == 900:
