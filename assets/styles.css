@@ -148,6 +148,14 @@ img {
     color: #fff;
 }
 
+#widget {
+    margin-top: 20px;
+}
+
+#widget-button {
+    margin-left: 10px;
+}
+
 .centered-content {
     text-align: center;
 }
