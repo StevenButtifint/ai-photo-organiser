@@ -44,8 +44,8 @@ Python was my choice for the backend due to its strong cross-platform compatibil
 - How to create a linkage matrix to cluster words from a wordnet.
 
 ### References
-- EfficientNet B3 model can be found [here](https://www.kaggle.com/datasets/kozodoi/efficientnet-pytorch/) and is placed in: `backend\models\efficientnet-b3.pth`
-
+- EfficientNet B3 model can be found [here](https://www.kaggle.com/datasets/kozodoi/efficientnet-pytorch/) and is placed in: `backend/models/efficientnet-b3.pth`
+- ImageNet class index can be found [here](https://storage.googleapis.com/download.tensorflow.org/data/imagenet_class_index.json) and is placed in: `backend/classes.json`
 
 
 ---
