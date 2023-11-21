@@ -14,6 +14,7 @@ from constants import *
 class PhotoOrganiser:
     def __init__(self, directory):
         self.status = 200
+        self.status_message = None
         self.directory = None
         self.finished = False
         self.photo_paths = []
@@ -39,7 +40,9 @@ class PhotoOrganiser:
 
     def load_classifier(self):
         if not self.photo_classifier.is_model_loaded():
-            self.status = self.photo_classifier.setup_model()
+            self.status, status_message = self.photo_classifier.setup_model()
+            if self.status == 900:
+                self.status_message = status_message
 
     def set_classification_list(self):
         self.classification_list = []
@@ -49,7 +52,7 @@ class PhotoOrganiser:
                 image_classification = self.photo_classifier.classify_photo(preprocessed_image)
                 self.classification_list.append([image_classification, photo_dir])
             except FileNotFoundError:
-                self.status = 503
+                self.status = 504
 
     def set_classification_dictionary(self):
         self.classification_dictionary = {}
@@ -114,9 +117,15 @@ class PhotoOrganiser:
                 break
 
     def output_status(self, message):
-        formatted = [message, self.status, self.finished, status_codes[self.status]]
+        if self.status == 900:
+            status_message = self.status_message
+        else:
+            status_message = STATUS_CODES[self.status]
+        formatted = [message, self.status, self.finished, status_message]
         print(json.dumps(formatted), flush=True)
-        if self.status != 200:
+
+    def error_occurred(self):
+        return self.status != 200
 
     def get_status_code(self):
         return self.status
