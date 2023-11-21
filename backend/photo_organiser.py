@@ -117,6 +117,23 @@ class PhotoOrganiser:
             else:
                 break
 
+    def create_subfolder(self, subfolder):
+        new_location = self.directory + "\\" + subfolder
+        try:
+            if not os.path.exists(new_location):
+                os.makedirs(new_location)
+            return True
+        except FileNotFoundError:
+            self.status = 505
+            return False
+        except PermissionError:
+            self.status = 506
+            return False
+        except Exception as e:
+            self.status = 900
+            self.status_message = str(e)
+            return False
+
     def move_file(self, file_directory, destination):
         try:
             shutil.move(file_directory, destination)
