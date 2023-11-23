@@ -18,3 +18,4 @@ STATUS_CODES = {
 
 CLASSES_DIR = 'backend\\classes.json'
 WORDNET = 'wordnet'
+MODEL = 'efficientnet_b3'

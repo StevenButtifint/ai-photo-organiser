@@ -4,7 +4,7 @@ import json
 from PIL import Image
 import torchvision.transforms as transforms
 
-from constants import CLASSES_DIR
+from constants import CLASSES_DIR, MODEL
 
 
 class PhotoClassifier:
@@ -16,7 +16,7 @@ class PhotoClassifier:
     def setup_model(self):
         state_message = ""
         try:
-            self.model = timm.create_model('efficientnet_b3', pretrained=True)
+            self.model = timm.create_model(MODEL, pretrained=True)
             self.model.eval()
             self.model_loaded = True
             self.load_classes()
