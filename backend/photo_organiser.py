@@ -181,9 +181,30 @@ class PhotoOrganiser:
     def get_classification_dictionary(self):
         return self.classification_dictionary
 
+
 def process_request(folder_path):
     photo_organiser = PhotoOrganiser(folder_path)
+    operations_messages = [
+        (photo_organiser.set_photo_paths, "Loading Photos..."),
+        (photo_organiser.load_classifier, "Loading classification model..."),
+        (photo_organiser.set_classification_list, f"Categorising {photo_organiser.get_photo_count()} photos..."),
+        (photo_organiser.set_classification_dictionary, f"Grouping {photo_organiser.get_photo_count()} photos..."),
+        (photo_organiser.set_linkage_matrix, f"Grouping {photo_organiser.get_photo_count()} photos..."),
+        (photo_organiser.create_cluster_dictionary, f"Grouping {photo_organiser.get_photo_count()} photos..."),
+        (photo_organiser.create_cluster_names, f"Grouping {photo_organiser.get_photo_count()} photos..."),
+        (photo_organiser.move_photos, f"Moving {photo_organiser.get_photo_count()} photos...")
+    ]
+
+    for operation, message in operations_messages:
+        if photo_organiser.error_occurred():
+            photo_organiser.output_status(STATUS_CODES[photo_organiser.get_status_code()])
             quit()
+        else:
+            photo_organiser.output_status(message)
+            operation()
+    photo_organiser.output_status(f"Successfully Sorted Photos into {photo_organiser.get_cluster_count()} Groups.")
+
+
 def load_wordnet():
     nltk.download(WORDNET)
 
