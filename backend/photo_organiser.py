@@ -146,6 +146,9 @@ class PhotoOrganiser:
             self.status_message = str(e)
             return False
 
+    def set_cluster_count(self, cluster_count):
+        self.cluster_count = cluster_count
+
     def output_status(self, message):
         if self.status == 900:
             status_message = self.status_message
