@@ -5,11 +5,13 @@ document.getElementById('setupName').textContent = window.constants.app_name + "
 document.getElementById('appCredit').textContent = window.constants.app_credit;
 document.getElementById('appVersion').textContent = window.constants.app_version;
 
+const INDEX_PAGE_PATH = "../pages/index.html";
+
 const notice = document.getElementById('organise-notice');
 const home_button = document.getElementById('homeButton');
 
 document.getElementById('homeButton').addEventListener('click', () => {
-  window.location.href = '../pages/index.html';
+  window.location.href = INDEX_PAGE_PATH;
 });
  
 ipcRenderer.on('organise-result', (event, result) => {
@@ -22,7 +24,6 @@ ipcRenderer.on('organise-result', (event, result) => {
 
   notice.textContent = `${returned_message}`;
 
-
   if (returned_state != "200"){
     setHomeButtonText("Close");
     home_button.className = "button";
@@ -33,12 +34,10 @@ ipcRenderer.on('organise-result', (event, result) => {
   } else {
     notice.textContent = `${returned_message}`;
   }
-
   if (returned_done == true) {
     setHomeButtonText("Finish");
     home_button.className = "button";
   }
-
 });
 
 function setHomeButtonText(text) {
