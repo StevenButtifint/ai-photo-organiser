@@ -19,8 +19,7 @@ class PhotoClassifier:
             self.model = timm.create_model(MODEL, pretrained=True)
             self.model.eval()
             self.model_loaded = True
-            self.load_classes()
-            state = 200
+            state, state_message = self.load_classes()
         except timm.models.model_names:
             state = 500
         except timm.pretrained_weights:
@@ -36,8 +35,14 @@ class PhotoClassifier:
         return self.model_loaded
 
     def load_classes(self):
-        with open(CLASSES_DIR, 'r') as file:
-            self.class_index = json.load(file)
+        try:
+            with open(CLASSES_DIR, 'r') as file:
+                self.class_index = json.load(file)
+            return 200, ""
+        except FileNotFoundError:
+            return 502, ""
+        except Exception as e:
+            return 900, str(e)
 
     @staticmethod
     def preprocess_photo(photo_path):
